@@ -1,0 +1,40 @@
+grammar fr.imta.yperiquoi.browserautomation.BrowserAutomationDSL with org.eclipse.xtext.common.Terminals
+
+generate browserAutomationDSL "http://www.imta.fr/yperiquoi/browserautomation/BrowserAutomationDSL"
+
+Model:
+    commands+=Command*;
+
+Command:
+    OpenBrowser | GoTo | Click | Fill | Select | Verify | Read | Paste | Uncheck | Combobox;
+
+OpenBrowser:
+    {OpenBrowser} 'open' 'a' 'browser' 'window';
+
+GoTo:
+    'go' 'to' 'url' urlName=STRING;
+
+Click:
+    {Click} 'click' 'on' ('the' 'link' linkText=STRING | 'the' 'button' 'with' 'text' buttonText=STRING | 'the' 'image' 'with' 'alt' 'property' alt=STRING | 'the' 'url');
+
+Fill:
+    'fill' 'the' ('text' 'field' fieldName=STRING | 'search' 'field') 'with' textToFill=STRING;
+
+Select:
+    'select' 'the' 'checkbox' ('named' checkboxName=STRING | 'with' 'values' values+=STRING (',' values+=STRING)*);
+
+Verify:
+    {Verify} 'verify' 'that' 'the' 'page' 'contains' ('a' 'title' 'of' 'the' 'previously' 'clicked' 'news' | 'the' 'string' textToVerify=STRING | 'a' 'link' linkToVerify=STRING | 'a' 'link' 'to' 'the' 'previous' 'url');
+
+Read:
+    'read' 'the' 'title' 'and' 'url' 'of' 'the' 'news' 'number' number=INT 'in' 'the' 'page';
+
+Paste:
+    {Paste} 'paste' 'the' 'title' 'in' ('the' 'search' 'field' | 'search' 'field');
+
+Uncheck:
+    {Uncheck} 'uncheck' 'all' 'checkboxes';
+
+Combobox:
+	'choose' 'the' 'option' option=STRING 'in' 'the' 'combobox' label=STRING;
+	

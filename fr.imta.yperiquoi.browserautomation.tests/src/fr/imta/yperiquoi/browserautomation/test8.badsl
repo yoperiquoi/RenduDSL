@@ -1,0 +1,7 @@
+open a browser window
+go to url "http://www.imt-atlantique.fr/fr"
+read the title and url of the news number 2 in the page
+go to url "http://www.imt-atlantique.fr/fr/rechercher"
+paste the title in the search field
+click on the button with text "Appliquer les filtres"
+verify that the page contains a link to the previous url

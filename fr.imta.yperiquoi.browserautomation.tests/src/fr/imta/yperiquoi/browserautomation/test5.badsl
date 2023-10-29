@@ -1,0 +1,6 @@
+open a browser window
+go to  url "http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation"
+uncheck all checkboxes
+select the checkbox with values "Anglais", "A domicile", "Temps plein"
+click on the button with text "Appliquer les critères"
+verify that the page contains the string "No found course matching your criteria."

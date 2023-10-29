@@ -1,0 +1,5 @@
+open a browser window
+go to url "http://www.imt-atlantique.fr/fr"
+read the title and url of the news number 1 in the page
+click on the url
+verify that the page contains a title of the previously clicked news

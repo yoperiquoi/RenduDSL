@@ -105,15 +105,6 @@ public interface BrowserAutomationDSLFactory extends EFactory
   Read createRead();
 
   /**
-   * Returns a new object of class '<em>Paste</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Paste</em>'.
-   * @generated
-   */
-  Paste createPaste();
-
-  /**
    * Returns a new object of class '<em>Uncheck</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

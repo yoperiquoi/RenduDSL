@@ -8,13 +8,9 @@ import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -26,7 +22,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.SelectImpl#getCheckboxName <em>Checkbox Name</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.SelectImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
@@ -34,26 +29,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  */
 public class SelectImpl extends CommandImpl implements Select
 {
-  /**
-   * The default value of the '{@link #getCheckboxName() <em>Checkbox Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCheckboxName()
-   * @generated
-   * @ordered
-   */
-  protected static final String CHECKBOX_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCheckboxName() <em>Checkbox Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCheckboxName()
-   * @generated
-   * @ordered
-   */
-  protected String checkboxName = CHECKBOX_NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -91,31 +66,6 @@ public class SelectImpl extends CommandImpl implements Select
    * @generated
    */
   @Override
-  public String getCheckboxName()
-  {
-    return checkboxName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setCheckboxName(String newCheckboxName)
-  {
-    String oldCheckboxName = checkboxName;
-    checkboxName = newCheckboxName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationDSLPackage.SELECT__CHECKBOX_NAME, oldCheckboxName, checkboxName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<String> getValues()
   {
     if (values == null)
@@ -135,8 +85,6 @@ public class SelectImpl extends CommandImpl implements Select
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.SELECT__CHECKBOX_NAME:
-        return getCheckboxName();
       case BrowserAutomationDSLPackage.SELECT__VALUES:
         return getValues();
     }
@@ -154,9 +102,6 @@ public class SelectImpl extends CommandImpl implements Select
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.SELECT__CHECKBOX_NAME:
-        setCheckboxName((String)newValue);
-        return;
       case BrowserAutomationDSLPackage.SELECT__VALUES:
         getValues().clear();
         getValues().addAll((Collection<? extends String>)newValue);
@@ -175,9 +120,6 @@ public class SelectImpl extends CommandImpl implements Select
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.SELECT__CHECKBOX_NAME:
-        setCheckboxName(CHECKBOX_NAME_EDEFAULT);
-        return;
       case BrowserAutomationDSLPackage.SELECT__VALUES:
         getValues().clear();
         return;
@@ -195,8 +137,6 @@ public class SelectImpl extends CommandImpl implements Select
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.SELECT__CHECKBOX_NAME:
-        return CHECKBOX_NAME_EDEFAULT == null ? checkboxName != null : !CHECKBOX_NAME_EDEFAULT.equals(checkboxName);
       case BrowserAutomationDSLPackage.SELECT__VALUES:
         return values != null && !values.isEmpty();
     }
@@ -214,9 +154,7 @@ public class SelectImpl extends CommandImpl implements Select
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (checkboxName: ");
-    result.append(checkboxName);
-    result.append(", values: ");
+    result.append(" (values: ");
     result.append(values);
     result.append(')');
     return result.toString();

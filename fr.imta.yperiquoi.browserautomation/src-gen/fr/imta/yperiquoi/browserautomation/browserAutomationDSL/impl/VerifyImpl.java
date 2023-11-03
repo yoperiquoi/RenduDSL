@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.VerifyImpl#getTextToVerify <em>Text To Verify</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.VerifyImpl#getLinkToVerify <em>Link To Verify</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.VerifyImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +68,26 @@ public class VerifyImpl extends CommandImpl implements Verify
    * @ordered
    */
   protected String linkToVerify = LINK_TO_VERIFY_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariable()
+   * @generated
+   * @ordered
+   */
+  protected static final String VARIABLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariable()
+   * @generated
+   * @ordered
+   */
+  protected String variable = VARIABLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,6 +166,31 @@ public class VerifyImpl extends CommandImpl implements Verify
    * @generated
    */
   @Override
+  public String getVariable()
+  {
+    return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVariable(String newVariable)
+  {
+    String oldVariable = variable;
+    variable = newVariable;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationDSLPackage.VERIFY__VARIABLE, oldVariable, variable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -153,6 +199,8 @@ public class VerifyImpl extends CommandImpl implements Verify
         return getTextToVerify();
       case BrowserAutomationDSLPackage.VERIFY__LINK_TO_VERIFY:
         return getLinkToVerify();
+      case BrowserAutomationDSLPackage.VERIFY__VARIABLE:
+        return getVariable();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,6 +220,9 @@ public class VerifyImpl extends CommandImpl implements Verify
         return;
       case BrowserAutomationDSLPackage.VERIFY__LINK_TO_VERIFY:
         setLinkToVerify((String)newValue);
+        return;
+      case BrowserAutomationDSLPackage.VERIFY__VARIABLE:
+        setVariable((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,6 +244,9 @@ public class VerifyImpl extends CommandImpl implements Verify
       case BrowserAutomationDSLPackage.VERIFY__LINK_TO_VERIFY:
         setLinkToVerify(LINK_TO_VERIFY_EDEFAULT);
         return;
+      case BrowserAutomationDSLPackage.VERIFY__VARIABLE:
+        setVariable(VARIABLE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -211,6 +265,8 @@ public class VerifyImpl extends CommandImpl implements Verify
         return TEXT_TO_VERIFY_EDEFAULT == null ? textToVerify != null : !TEXT_TO_VERIFY_EDEFAULT.equals(textToVerify);
       case BrowserAutomationDSLPackage.VERIFY__LINK_TO_VERIFY:
         return LINK_TO_VERIFY_EDEFAULT == null ? linkToVerify != null : !LINK_TO_VERIFY_EDEFAULT.equals(linkToVerify);
+      case BrowserAutomationDSLPackage.VERIFY__VARIABLE:
+        return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
     }
     return super.eIsSet(featureID);
   }
@@ -230,6 +286,8 @@ public class VerifyImpl extends CommandImpl implements Verify
     result.append(textToVerify);
     result.append(", linkToVerify: ");
     result.append(linkToVerify);
+    result.append(", variable: ");
+    result.append(variable);
     result.append(')');
     return result.toString();
   }

@@ -15,6 +15,7 @@ package fr.imta.yperiquoi.browserautomation.browserAutomationDSL;
  * <ul>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Verify#getTextToVerify <em>Text To Verify</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Verify#getLinkToVerify <em>Link To Verify</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Verify#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getVerify()
@@ -66,5 +67,27 @@ public interface Verify extends Command
    * @generated
    */
   void setLinkToVerify(String value);
+
+  /**
+   * Returns the value of the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variable</em>' attribute.
+   * @see #setVariable(String)
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getVerify_Variable()
+   * @model
+   * @generated
+   */
+  String getVariable();
+
+  /**
+   * Sets the value of the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Verify#getVariable <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Variable</em>' attribute.
+   * @see #getVariable()
+   * @generated
+   */
+  void setVariable(String value);
 
 } // Verify

@@ -12,29 +12,32 @@
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Command"/>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//OpenBrowser"/>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//GoTo">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//GoTo/urlName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//GoTo/url"/>
     </genClasses>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Click">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Click/linkText"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Click/buttonText"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Click/alt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Click/variable"/>
     </genClasses>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Fill">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Fill/fieldName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Fill/textToFill"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Fill/variable"/>
     </genClasses>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Select">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Select/checkboxName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Select/values"/>
     </genClasses>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Verify">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Verify/textToVerify"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Verify/linkToVerify"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Verify/variable"/>
     </genClasses>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Read">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Read/elements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Read/linkText"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Read/number"/>
     </genClasses>
-    <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Paste"/>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Uncheck"/>
     <genClasses ecoreClass="BrowserAutomationDSL.ecore#//Combobox">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomationDSL.ecore#//Combobox/option"/>

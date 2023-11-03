@@ -6,31 +6,28 @@ Model:
     commands+=Command*;
 
 Command:
-    OpenBrowser | GoTo | Click | Fill | Select | Verify | Read | Paste | Uncheck | Combobox;
+    OpenBrowser | GoTo | Click | Fill | Select | Verify | Read | Uncheck | Combobox;
 
 OpenBrowser:
     {OpenBrowser} 'open' 'a' 'browser' 'window';
 
 GoTo:
-    'go' 'to' 'url' urlName=STRING;
+    'go' 'to' 'url' url=URL;
 
 Click:
-    {Click} 'click' 'on' ('the' 'link' linkText=STRING | 'the' 'button' 'with' 'text' buttonText=STRING | 'the' 'image' 'with' 'alt' 'property' alt=STRING | 'the' 'url');
+    {Click} 'click' 'on' 'the' ('link' linkText=STRING | 'button' buttonText=STRING | 'image' alt=STRING | 'variable' variable=DOMELEMENT);
 
 Fill:
-    'fill' 'the' ('text' 'field' fieldName=STRING | 'search' 'field') 'with' textToFill=STRING;
+    'fill' 'the' 'text' 'field' fieldName=STRING 'with' 'the' ( 'text' textToFill=STRING | 'variable' variable=DOMELEMENT);
 
 Select:
-    'select' 'the' 'checkbox' ('named' checkboxName=STRING | 'with' 'values' values+=STRING (',' values+=STRING)*);
+    'select' 'the' 'checkbox' 'with' 'values' values+=STRING (',' values+=STRING)*;
 
 Verify:
-    {Verify} 'verify' 'that' 'the' 'page' 'contains' ('a' 'title' 'of' 'the' 'previously' 'clicked' 'news' | 'the' 'string' textToVerify=STRING | 'a' 'link' linkToVerify=STRING | 'a' 'link' 'to' 'the' 'previous' 'url');
+    {Verify} 'verify' 'that' 'the' 'page' 'contains' 'the' ( 'string' textToVerify=STRING | 'link' linkToVerify=STRING | 'variable' variable=DOMELEMENT);
 
 Read:
-    'read' 'the' 'title' 'and' 'url' 'of' 'the' 'news' 'number' number=INT 'in' 'the' 'page';
-
-Paste:
-    {Paste} 'paste' 'the' 'title' 'in' ('the' 'search' 'field' | 'search' 'field');
+    'read' 'the' elements+=DOMELEMENT (',' elements+=DOMELEMENT)* 'of' 'the' 'link' linkText=STRING 'number' number=INT;
 
 Uncheck:
     {Uncheck} 'uncheck' 'all' 'checkboxes';
@@ -38,3 +35,23 @@ Uncheck:
 Combobox:
 	'choose' 'the' 'option' option=STRING 'in' 'the' 'combobox' label=STRING;
 	
+DOMELEMENT:
+	('link' | 'button' | 'image' | 'url' | 'text' 'link' | 'title');
+	
+	
+terminal URL:
+  ('http' 's'? '://')?
+  ('www' '.')?
+  (DOMAIN) 
+  (':' DOMAIN)*
+  ('.' DOMAIN)*
+  ('/' ('~' | DOMAIN))*
+  ('?' ('~' | DOMAIN))*
+  ('#' ('~' | DOMAIN))*
+;
+
+terminal DOMAIN: '^'?('a'..'z'|'A'..'Z'|'_'|'-') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'-')*;
+
+  
+  
+ 

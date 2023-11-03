@@ -121,11 +121,6 @@ public class BrowserAutomationDSLAdapterFactory extends AdapterFactoryImpl
         return createReadAdapter();
       }
       @Override
-      public Adapter casePaste(Paste object)
-      {
-        return createPasteAdapter();
-      }
-      @Override
       public Adapter caseUncheck(Uncheck object)
       {
         return createUncheckAdapter();
@@ -288,21 +283,6 @@ public class BrowserAutomationDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createReadAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Paste <em>Paste</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Paste
-   * @generated
-   */
-  public Adapter createPasteAdapter()
   {
     return null;
   }

@@ -1,6 +1,6 @@
 open a browser window
-go to url "http://www.imt-atlantique.fr/fr/rechercher"
-fill the search field with "2006"
+go to url http://www.imt-atlantique.fr/fr/rechercher
+fill the text field "Rechercher" with the text "2006"
 choose the option "Le mois dernier" in the combobox "Période de publication"
-click on the button with text "Appliquer les filtres"
+click on the button "Appliquer les filtres"
 verify that the page contains the string "Aucun résultat ne correspond à votre recherche"

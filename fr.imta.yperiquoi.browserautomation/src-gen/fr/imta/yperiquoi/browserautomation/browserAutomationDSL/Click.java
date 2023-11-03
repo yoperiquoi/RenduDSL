@@ -16,6 +16,7 @@ package fr.imta.yperiquoi.browserautomation.browserAutomationDSL;
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click#getLinkText <em>Link Text</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click#getButtonText <em>Button Text</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click#getAlt <em>Alt</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getClick()
@@ -89,5 +90,27 @@ public interface Click extends Command
    * @generated
    */
   void setAlt(String value);
+
+  /**
+   * Returns the value of the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variable</em>' attribute.
+   * @see #setVariable(String)
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getClick_Variable()
+   * @model
+   * @generated
+   */
+  String getVariable();
+
+  /**
+   * Sets the value of the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click#getVariable <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Variable</em>' attribute.
+   * @see #getVariable()
+   * @generated
+   */
+  void setVariable(String value);
 
 } // Click

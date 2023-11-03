@@ -12,7 +12,6 @@ import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Fill;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Model;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.OpenBrowser;
-import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Paste;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Uncheck;
@@ -95,13 +94,6 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   private EClass readEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass pasteEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -240,7 +232,7 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   @Override
-  public EAttribute getGoTo_UrlName()
+  public EAttribute getGoTo_Url()
   {
     return (EAttribute)goToEClass.getEStructuralFeatures().get(0);
   }
@@ -295,6 +287,17 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   @Override
+  public EAttribute getClick_Variable()
+  {
+    return (EAttribute)clickEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFill()
   {
     return fillEClass;
@@ -328,6 +331,17 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   @Override
+  public EAttribute getFill_Variable()
+  {
+    return (EAttribute)fillEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSelect()
   {
     return selectEClass;
@@ -339,20 +353,9 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   @Override
-  public EAttribute getSelect_CheckboxName()
-  {
-    return (EAttribute)selectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EAttribute getSelect_Values()
   {
-    return (EAttribute)selectEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)selectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -394,6 +397,17 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   @Override
+  public EAttribute getVerify_Variable()
+  {
+    return (EAttribute)verifyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getRead()
   {
     return readEClass;
@@ -405,7 +419,7 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   @Override
-  public EAttribute getRead_Number()
+  public EAttribute getRead_Elements()
   {
     return (EAttribute)readEClass.getEStructuralFeatures().get(0);
   }
@@ -416,9 +430,20 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
    * @generated
    */
   @Override
-  public EClass getPaste()
+  public EAttribute getRead_LinkText()
   {
-    return pasteEClass;
+    return (EAttribute)readEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRead_Number()
+  {
+    return (EAttribute)readEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -504,29 +529,31 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
     openBrowserEClass = createEClass(OPEN_BROWSER);
 
     goToEClass = createEClass(GO_TO);
-    createEAttribute(goToEClass, GO_TO__URL_NAME);
+    createEAttribute(goToEClass, GO_TO__URL);
 
     clickEClass = createEClass(CLICK);
     createEAttribute(clickEClass, CLICK__LINK_TEXT);
     createEAttribute(clickEClass, CLICK__BUTTON_TEXT);
     createEAttribute(clickEClass, CLICK__ALT);
+    createEAttribute(clickEClass, CLICK__VARIABLE);
 
     fillEClass = createEClass(FILL);
     createEAttribute(fillEClass, FILL__FIELD_NAME);
     createEAttribute(fillEClass, FILL__TEXT_TO_FILL);
+    createEAttribute(fillEClass, FILL__VARIABLE);
 
     selectEClass = createEClass(SELECT);
-    createEAttribute(selectEClass, SELECT__CHECKBOX_NAME);
     createEAttribute(selectEClass, SELECT__VALUES);
 
     verifyEClass = createEClass(VERIFY);
     createEAttribute(verifyEClass, VERIFY__TEXT_TO_VERIFY);
     createEAttribute(verifyEClass, VERIFY__LINK_TO_VERIFY);
+    createEAttribute(verifyEClass, VERIFY__VARIABLE);
 
     readEClass = createEClass(READ);
+    createEAttribute(readEClass, READ__ELEMENTS);
+    createEAttribute(readEClass, READ__LINK_TEXT);
     createEAttribute(readEClass, READ__NUMBER);
-
-    pasteEClass = createEClass(PASTE);
 
     uncheckEClass = createEClass(UNCHECK);
 
@@ -571,7 +598,6 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
     selectEClass.getESuperTypes().add(this.getCommand());
     verifyEClass.getESuperTypes().add(this.getCommand());
     readEClass.getESuperTypes().add(this.getCommand());
-    pasteEClass.getESuperTypes().add(this.getCommand());
     uncheckEClass.getESuperTypes().add(this.getCommand());
     comboboxEClass.getESuperTypes().add(this.getCommand());
 
@@ -584,29 +610,31 @@ public class BrowserAutomationDSLPackageImpl extends EPackageImpl implements Bro
     initEClass(openBrowserEClass, OpenBrowser.class, "OpenBrowser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(goToEClass, GoTo.class, "GoTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGoTo_UrlName(), ecorePackage.getEString(), "urlName", null, 0, 1, GoTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGoTo_Url(), ecorePackage.getEString(), "url", null, 0, 1, GoTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clickEClass, Click.class, "Click", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClick_LinkText(), ecorePackage.getEString(), "linkText", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClick_ButtonText(), ecorePackage.getEString(), "buttonText", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClick_Alt(), ecorePackage.getEString(), "alt", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClick_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, Click.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fillEClass, Fill.class, "Fill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFill_FieldName(), ecorePackage.getEString(), "fieldName", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFill_TextToFill(), ecorePackage.getEString(), "textToFill", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFill_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, Fill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectEClass, Select.class, "Select", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSelect_CheckboxName(), ecorePackage.getEString(), "checkboxName", null, 0, 1, Select.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSelect_Values(), ecorePackage.getEString(), "values", null, 0, -1, Select.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(verifyEClass, Verify.class, "Verify", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVerify_TextToVerify(), ecorePackage.getEString(), "textToVerify", null, 0, 1, Verify.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVerify_LinkToVerify(), ecorePackage.getEString(), "linkToVerify", null, 0, 1, Verify.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVerify_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, Verify.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(readEClass, Read.class, "Read", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRead_Elements(), ecorePackage.getEString(), "elements", null, 0, -1, Read.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRead_LinkText(), ecorePackage.getEString(), "linkText", null, 0, 1, Read.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRead_Number(), ecorePackage.getEInt(), "number", null, 0, 1, Read.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(pasteEClass, Paste.class, "Paste", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(uncheckEClass, Uncheck.class, "Uncheck", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

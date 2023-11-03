@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.FillImpl#getFieldName <em>Field Name</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.FillImpl#getTextToFill <em>Text To Fill</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.FillImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +68,26 @@ public class FillImpl extends CommandImpl implements Fill
    * @ordered
    */
   protected String textToFill = TEXT_TO_FILL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariable()
+   * @generated
+   * @ordered
+   */
+  protected static final String VARIABLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariable()
+   * @generated
+   * @ordered
+   */
+  protected String variable = VARIABLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,6 +166,31 @@ public class FillImpl extends CommandImpl implements Fill
    * @generated
    */
   @Override
+  public String getVariable()
+  {
+    return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVariable(String newVariable)
+  {
+    String oldVariable = variable;
+    variable = newVariable;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationDSLPackage.FILL__VARIABLE, oldVariable, variable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -153,6 +199,8 @@ public class FillImpl extends CommandImpl implements Fill
         return getFieldName();
       case BrowserAutomationDSLPackage.FILL__TEXT_TO_FILL:
         return getTextToFill();
+      case BrowserAutomationDSLPackage.FILL__VARIABLE:
+        return getVariable();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,6 +220,9 @@ public class FillImpl extends CommandImpl implements Fill
         return;
       case BrowserAutomationDSLPackage.FILL__TEXT_TO_FILL:
         setTextToFill((String)newValue);
+        return;
+      case BrowserAutomationDSLPackage.FILL__VARIABLE:
+        setVariable((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,6 +244,9 @@ public class FillImpl extends CommandImpl implements Fill
       case BrowserAutomationDSLPackage.FILL__TEXT_TO_FILL:
         setTextToFill(TEXT_TO_FILL_EDEFAULT);
         return;
+      case BrowserAutomationDSLPackage.FILL__VARIABLE:
+        setVariable(VARIABLE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -211,6 +265,8 @@ public class FillImpl extends CommandImpl implements Fill
         return FIELD_NAME_EDEFAULT == null ? fieldName != null : !FIELD_NAME_EDEFAULT.equals(fieldName);
       case BrowserAutomationDSLPackage.FILL__TEXT_TO_FILL:
         return TEXT_TO_FILL_EDEFAULT == null ? textToFill != null : !TEXT_TO_FILL_EDEFAULT.equals(textToFill);
+      case BrowserAutomationDSLPackage.FILL__VARIABLE:
+        return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
     }
     return super.eIsSet(featureID);
   }
@@ -230,6 +286,8 @@ public class FillImpl extends CommandImpl implements Fill
     result.append(fieldName);
     result.append(", textToFill: ");
     result.append(textToFill);
+    result.append(", variable: ");
+    result.append(variable);
     result.append(')');
     return result.toString();
   }

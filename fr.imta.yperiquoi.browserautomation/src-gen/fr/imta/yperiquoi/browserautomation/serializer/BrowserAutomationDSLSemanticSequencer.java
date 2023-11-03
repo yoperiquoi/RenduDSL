@@ -11,7 +11,6 @@ import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Fill;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Model;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.OpenBrowser;
-import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Paste;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Uncheck;
@@ -60,9 +59,6 @@ public class BrowserAutomationDSLSemanticSequencer extends AbstractDelegatingSem
 			case BrowserAutomationDSLPackage.OPEN_BROWSER:
 				sequence_OpenBrowser(context, (OpenBrowser) semanticObject); 
 				return; 
-			case BrowserAutomationDSLPackage.PASTE:
-				sequence_Paste(context, (Paste) semanticObject); 
-				return; 
 			case BrowserAutomationDSLPackage.READ:
 				sequence_Read(context, (Read) semanticObject); 
 				return; 
@@ -87,7 +83,7 @@ public class BrowserAutomationDSLSemanticSequencer extends AbstractDelegatingSem
 	 *     Click returns Click
 	 *
 	 * Constraint:
-	 *     (linkText=STRING | buttonText=STRING | alt=STRING)?
+	 *     (linkText=STRING | buttonText=STRING | alt=STRING | variable=DOMELEMENT)
 	 * </pre>
 	 */
 	protected void sequence_Click(ISerializationContext context, Click semanticObject) {
@@ -126,7 +122,7 @@ public class BrowserAutomationDSLSemanticSequencer extends AbstractDelegatingSem
 	 *     Fill returns Fill
 	 *
 	 * Constraint:
-	 *     (fieldName=STRING? textToFill=STRING)
+	 *     (fieldName=STRING (textToFill=STRING | variable=DOMELEMENT))
 	 * </pre>
 	 */
 	protected void sequence_Fill(ISerializationContext context, Fill semanticObject) {
@@ -141,16 +137,16 @@ public class BrowserAutomationDSLSemanticSequencer extends AbstractDelegatingSem
 	 *     GoTo returns GoTo
 	 *
 	 * Constraint:
-	 *     urlName=STRING
+	 *     url=URL
 	 * </pre>
 	 */
 	protected void sequence_GoTo(ISerializationContext context, GoTo semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BrowserAutomationDSLPackage.Literals.GO_TO__URL_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BrowserAutomationDSLPackage.Literals.GO_TO__URL_NAME));
+			if (transientValues.isValueTransient(semanticObject, BrowserAutomationDSLPackage.Literals.GO_TO__URL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BrowserAutomationDSLPackage.Literals.GO_TO__URL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGoToAccess().getUrlNameSTRINGTerminalRuleCall_3_0(), semanticObject.getUrlName());
+		feeder.accept(grammarAccess.getGoToAccess().getUrlURLTerminalRuleCall_3_0(), semanticObject.getUrl());
 		feeder.finish();
 	}
 	
@@ -187,36 +183,15 @@ public class BrowserAutomationDSLSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Command returns Paste
-	 *     Paste returns Paste
-	 *
-	 * Constraint:
-	 *     {Paste}
-	 * </pre>
-	 */
-	protected void sequence_Paste(ISerializationContext context, Paste semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Command returns Read
 	 *     Read returns Read
 	 *
 	 * Constraint:
-	 *     number=INT
+	 *     (elements+=DOMELEMENT elements+=DOMELEMENT* linkText=STRING number=INT)
 	 * </pre>
 	 */
 	protected void sequence_Read(ISerializationContext context, Read semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BrowserAutomationDSLPackage.Literals.READ__NUMBER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BrowserAutomationDSLPackage.Literals.READ__NUMBER));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReadAccess().getNumberINTTerminalRuleCall_9_0(), semanticObject.getNumber());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -227,7 +202,7 @@ public class BrowserAutomationDSLSemanticSequencer extends AbstractDelegatingSem
 	 *     Select returns Select
 	 *
 	 * Constraint:
-	 *     (checkboxName=STRING | (values+=STRING values+=STRING*))
+	 *     (values+=STRING values+=STRING*)
 	 * </pre>
 	 */
 	protected void sequence_Select(ISerializationContext context, Select semanticObject) {
@@ -257,7 +232,7 @@ public class BrowserAutomationDSLSemanticSequencer extends AbstractDelegatingSem
 	 *     Verify returns Verify
 	 *
 	 * Constraint:
-	 *     (textToVerify=STRING | linkToVerify=STRING)?
+	 *     (textToVerify=STRING | linkToVerify=STRING | variable=DOMELEMENT)
 	 * </pre>
 	 */
 	protected void sequence_Verify(ISerializationContext context, Verify semanticObject) {

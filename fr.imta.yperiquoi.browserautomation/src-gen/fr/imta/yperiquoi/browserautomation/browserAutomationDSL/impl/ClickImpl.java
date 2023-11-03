@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ClickImpl#getLinkText <em>Link Text</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ClickImpl#getButtonText <em>Button Text</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ClickImpl#getAlt <em>Alt</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ClickImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +89,26 @@ public class ClickImpl extends CommandImpl implements Click
    * @ordered
    */
   protected String alt = ALT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariable()
+   * @generated
+   * @ordered
+   */
+  protected static final String VARIABLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariable()
+   * @generated
+   * @ordered
+   */
+  protected String variable = VARIABLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -191,6 +212,31 @@ public class ClickImpl extends CommandImpl implements Click
    * @generated
    */
   @Override
+  public String getVariable()
+  {
+    return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVariable(String newVariable)
+  {
+    String oldVariable = variable;
+    variable = newVariable;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationDSLPackage.CLICK__VARIABLE, oldVariable, variable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -201,6 +247,8 @@ public class ClickImpl extends CommandImpl implements Click
         return getButtonText();
       case BrowserAutomationDSLPackage.CLICK__ALT:
         return getAlt();
+      case BrowserAutomationDSLPackage.CLICK__VARIABLE:
+        return getVariable();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -223,6 +271,9 @@ public class ClickImpl extends CommandImpl implements Click
         return;
       case BrowserAutomationDSLPackage.CLICK__ALT:
         setAlt((String)newValue);
+        return;
+      case BrowserAutomationDSLPackage.CLICK__VARIABLE:
+        setVariable((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -247,6 +298,9 @@ public class ClickImpl extends CommandImpl implements Click
       case BrowserAutomationDSLPackage.CLICK__ALT:
         setAlt(ALT_EDEFAULT);
         return;
+      case BrowserAutomationDSLPackage.CLICK__VARIABLE:
+        setVariable(VARIABLE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -267,6 +321,8 @@ public class ClickImpl extends CommandImpl implements Click
         return BUTTON_TEXT_EDEFAULT == null ? buttonText != null : !BUTTON_TEXT_EDEFAULT.equals(buttonText);
       case BrowserAutomationDSLPackage.CLICK__ALT:
         return ALT_EDEFAULT == null ? alt != null : !ALT_EDEFAULT.equals(alt);
+      case BrowserAutomationDSLPackage.CLICK__VARIABLE:
+        return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
     }
     return super.eIsSet(featureID);
   }
@@ -288,6 +344,8 @@ public class ClickImpl extends CommandImpl implements Click
     result.append(buttonText);
     result.append(", alt: ");
     result.append(alt);
+    result.append(", variable: ");
+    result.append(variable);
     result.append(')');
     return result.toString();
   }

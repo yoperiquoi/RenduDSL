@@ -134,13 +134,13 @@ public interface BrowserAutomationDSLPackage extends EPackage
   int GO_TO = 3;
 
   /**
-   * The feature id for the '<em><b>Url Name</b></em>' attribute.
+   * The feature id for the '<em><b>Url</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GO_TO__URL_NAME = COMMAND_FEATURE_COUNT + 0;
+  int GO_TO__URL = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Go To</em>' class.
@@ -189,13 +189,22 @@ public interface BrowserAutomationDSLPackage extends EPackage
   int CLICK__ALT = COMMAND_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLICK__VARIABLE = COMMAND_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Click</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLICK_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
+  int CLICK_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.FillImpl <em>Fill</em>}' class.
@@ -226,13 +235,22 @@ public interface BrowserAutomationDSLPackage extends EPackage
   int FILL__TEXT_TO_FILL = COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILL__VARIABLE = COMMAND_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Fill</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILL_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+  int FILL_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.SelectImpl <em>Select</em>}' class.
@@ -245,22 +263,13 @@ public interface BrowserAutomationDSLPackage extends EPackage
   int SELECT = 6;
 
   /**
-   * The feature id for the '<em><b>Checkbox Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECT__CHECKBOX_NAME = COMMAND_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Values</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT__VALUES = COMMAND_FEATURE_COUNT + 1;
+  int SELECT__VALUES = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Select</em>' class.
@@ -269,7 +278,7 @@ public interface BrowserAutomationDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+  int SELECT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.VerifyImpl <em>Verify</em>}' class.
@@ -300,13 +309,22 @@ public interface BrowserAutomationDSLPackage extends EPackage
   int VERIFY__LINK_TO_VERIFY = COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VERIFY__VARIABLE = COMMAND_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Verify</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VERIFY_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+  int VERIFY_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ReadImpl <em>Read</em>}' class.
@@ -319,13 +337,31 @@ public interface BrowserAutomationDSLPackage extends EPackage
   int READ = 8;
 
   /**
+   * The feature id for the '<em><b>Elements</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int READ__ELEMENTS = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Link Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int READ__LINK_TEXT = COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Number</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int READ__NUMBER = COMMAND_FEATURE_COUNT + 0;
+  int READ__NUMBER = COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Read</em>' class.
@@ -334,26 +370,7 @@ public interface BrowserAutomationDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int READ_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.PasteImpl <em>Paste</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.PasteImpl
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.BrowserAutomationDSLPackageImpl#getPaste()
-   * @generated
-   */
-  int PASTE = 9;
-
-  /**
-   * The number of structural features of the '<em>Paste</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PASTE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
+  int READ_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.UncheckImpl <em>Uncheck</em>}' class.
@@ -363,7 +380,7 @@ public interface BrowserAutomationDSLPackage extends EPackage
    * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.BrowserAutomationDSLPackageImpl#getUncheck()
    * @generated
    */
-  int UNCHECK = 10;
+  int UNCHECK = 9;
 
   /**
    * The number of structural features of the '<em>Uncheck</em>' class.
@@ -382,7 +399,7 @@ public interface BrowserAutomationDSLPackage extends EPackage
    * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.BrowserAutomationDSLPackageImpl#getCombobox()
    * @generated
    */
-  int COMBOBOX = 11;
+  int COMBOBOX = 10;
 
   /**
    * The feature id for the '<em><b>Option</b></em>' attribute.
@@ -464,15 +481,15 @@ public interface BrowserAutomationDSLPackage extends EPackage
   EClass getGoTo();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrlName <em>Url Name</em>}'.
+   * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrl <em>Url</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Url Name</em>'.
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrlName()
+   * @return the meta object for the attribute '<em>Url</em>'.
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrl()
    * @see #getGoTo()
    * @generated
    */
-  EAttribute getGoTo_UrlName();
+  EAttribute getGoTo_Url();
 
   /**
    * Returns the meta object for class '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click <em>Click</em>}'.
@@ -518,6 +535,17 @@ public interface BrowserAutomationDSLPackage extends EPackage
   EAttribute getClick_Alt();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click#getVariable()
+   * @see #getClick()
+   * @generated
+   */
+  EAttribute getClick_Variable();
+
+  /**
    * Returns the meta object for class '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Fill <em>Fill</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -550,6 +578,17 @@ public interface BrowserAutomationDSLPackage extends EPackage
   EAttribute getFill_TextToFill();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Fill#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Fill#getVariable()
+   * @see #getFill()
+   * @generated
+   */
+  EAttribute getFill_Variable();
+
+  /**
    * Returns the meta object for class '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select <em>Select</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -558,17 +597,6 @@ public interface BrowserAutomationDSLPackage extends EPackage
    * @generated
    */
   EClass getSelect();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select#getCheckboxName <em>Checkbox Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Checkbox Name</em>'.
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select#getCheckboxName()
-   * @see #getSelect()
-   * @generated
-   */
-  EAttribute getSelect_CheckboxName();
 
   /**
    * Returns the meta object for the attribute list '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select#getValues <em>Values</em>}'.
@@ -614,6 +642,17 @@ public interface BrowserAutomationDSLPackage extends EPackage
   EAttribute getVerify_LinkToVerify();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Verify#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Verify#getVariable()
+   * @see #getVerify()
+   * @generated
+   */
+  EAttribute getVerify_Variable();
+
+  /**
    * Returns the meta object for class '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read <em>Read</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -622,6 +661,28 @@ public interface BrowserAutomationDSLPackage extends EPackage
    * @generated
    */
   EClass getRead();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Elements</em>'.
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getElements()
+   * @see #getRead()
+   * @generated
+   */
+  EAttribute getRead_Elements();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getLinkText <em>Link Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Link Text</em>'.
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getLinkText()
+   * @see #getRead()
+   * @generated
+   */
+  EAttribute getRead_LinkText();
 
   /**
    * Returns the meta object for the attribute '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getNumber <em>Number</em>}'.
@@ -633,16 +694,6 @@ public interface BrowserAutomationDSLPackage extends EPackage
    * @generated
    */
   EAttribute getRead_Number();
-
-  /**
-   * Returns the meta object for class '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Paste <em>Paste</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Paste</em>'.
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Paste
-   * @generated
-   */
-  EClass getPaste();
 
   /**
    * Returns the meta object for class '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Uncheck <em>Uncheck</em>}'.
@@ -758,12 +809,12 @@ public interface BrowserAutomationDSLPackage extends EPackage
     EClass GO_TO = eINSTANCE.getGoTo();
 
     /**
-     * The meta object literal for the '<em><b>Url Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GO_TO__URL_NAME = eINSTANCE.getGoTo_UrlName();
+    EAttribute GO_TO__URL = eINSTANCE.getGoTo_Url();
 
     /**
      * The meta object literal for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ClickImpl <em>Click</em>}' class.
@@ -800,6 +851,14 @@ public interface BrowserAutomationDSLPackage extends EPackage
     EAttribute CLICK__ALT = eINSTANCE.getClick_Alt();
 
     /**
+     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLICK__VARIABLE = eINSTANCE.getClick_Variable();
+
+    /**
      * The meta object literal for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.FillImpl <em>Fill</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -826,6 +885,14 @@ public interface BrowserAutomationDSLPackage extends EPackage
     EAttribute FILL__TEXT_TO_FILL = eINSTANCE.getFill_TextToFill();
 
     /**
+     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILL__VARIABLE = eINSTANCE.getFill_Variable();
+
+    /**
      * The meta object literal for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.SelectImpl <em>Select</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -834,14 +901,6 @@ public interface BrowserAutomationDSLPackage extends EPackage
      * @generated
      */
     EClass SELECT = eINSTANCE.getSelect();
-
-    /**
-     * The meta object literal for the '<em><b>Checkbox Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SELECT__CHECKBOX_NAME = eINSTANCE.getSelect_CheckboxName();
 
     /**
      * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
@@ -878,6 +937,14 @@ public interface BrowserAutomationDSLPackage extends EPackage
     EAttribute VERIFY__LINK_TO_VERIFY = eINSTANCE.getVerify_LinkToVerify();
 
     /**
+     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VERIFY__VARIABLE = eINSTANCE.getVerify_Variable();
+
+    /**
      * The meta object literal for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ReadImpl <em>Read</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -888,22 +955,28 @@ public interface BrowserAutomationDSLPackage extends EPackage
     EClass READ = eINSTANCE.getRead();
 
     /**
+     * The meta object literal for the '<em><b>Elements</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute READ__ELEMENTS = eINSTANCE.getRead_Elements();
+
+    /**
+     * The meta object literal for the '<em><b>Link Text</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute READ__LINK_TEXT = eINSTANCE.getRead_LinkText();
+
+    /**
      * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute READ__NUMBER = eINSTANCE.getRead_Number();
-
-    /**
-     * The meta object literal for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.PasteImpl <em>Paste</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.PasteImpl
-     * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.BrowserAutomationDSLPackageImpl#getPaste()
-     * @generated
-     */
-    EClass PASTE = eINSTANCE.getPaste();
 
     /**
      * The meta object literal for the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.UncheckImpl <em>Uncheck</em>}' class.

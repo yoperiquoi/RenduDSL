@@ -1,5 +1,5 @@
 open a browser window
-go to url "http://www.imt-atlantique.fr/fr"
-read the title and url of the news number 1 in the page
-click on the url
-verify that the page contains a title of the previously clicked news
+go to url http://www.imt-atlantique.fr/fr
+read the title, url of the link "/fr/actualites" number 1
+click on the variable url
+verify that the page contains the variable title

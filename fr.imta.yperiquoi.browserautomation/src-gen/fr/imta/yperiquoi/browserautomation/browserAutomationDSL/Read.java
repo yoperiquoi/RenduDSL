@@ -3,6 +3,7 @@
  */
 package fr.imta.yperiquoi.browserautomation.browserAutomationDSL;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,8 @@ package fr.imta.yperiquoi.browserautomation.browserAutomationDSL;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getLinkText <em>Link Text</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getNumber <em>Number</em>}</li>
  * </ul>
  *
@@ -22,6 +25,40 @@ package fr.imta.yperiquoi.browserautomation.browserAutomationDSL;
  */
 public interface Read extends Command
 {
+  /**
+   * Returns the value of the '<em><b>Elements</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Elements</em>' attribute list.
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getRead_Elements()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getElements();
+
+  /**
+   * Returns the value of the '<em><b>Link Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Link Text</em>' attribute.
+   * @see #setLinkText(String)
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getRead_LinkText()
+   * @model
+   * @generated
+   */
+  String getLinkText();
+
+  /**
+   * Sets the value of the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read#getLinkText <em>Link Text</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Link Text</em>' attribute.
+   * @see #getLinkText()
+   * @generated
+   */
+  void setLinkText(String value);
+
   /**
    * Returns the value of the '<em><b>Number</b></em>' attribute.
    * <!-- begin-user-doc -->

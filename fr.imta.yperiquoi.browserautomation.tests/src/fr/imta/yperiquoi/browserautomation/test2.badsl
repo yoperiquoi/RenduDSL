@@ -1,4 +1,4 @@
 open a browser window
-go to url "http://www.imt-atlantique.fr/fr"
+go to url http://www.imt-atlantique.fr/fr
 click on the link "Toutes les actualités"
-verify that the page contains a link "Accueil"
+verify that the page contains the link "Accueil"

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.GoToImpl#getUrlName <em>Url Name</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.GoToImpl#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class GoToImpl extends CommandImpl implements GoTo
 {
   /**
-   * The default value of the '{@link #getUrlName() <em>Url Name</em>}' attribute.
+   * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrlName()
+   * @see #getUrl()
    * @generated
    * @ordered
    */
-  protected static final String URL_NAME_EDEFAULT = null;
+  protected static final String URL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUrlName() <em>Url Name</em>}' attribute.
+   * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrlName()
+   * @see #getUrl()
    * @generated
    * @ordered
    */
-  protected String urlName = URL_NAME_EDEFAULT;
+  protected String url = URL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class GoToImpl extends CommandImpl implements GoTo
    * @generated
    */
   @Override
-  public String getUrlName()
+  public String getUrl()
   {
-    return urlName;
+    return url;
   }
 
   /**
@@ -85,12 +85,12 @@ public class GoToImpl extends CommandImpl implements GoTo
    * @generated
    */
   @Override
-  public void setUrlName(String newUrlName)
+  public void setUrl(String newUrl)
   {
-    String oldUrlName = urlName;
-    urlName = newUrlName;
+    String oldUrl = url;
+    url = newUrl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationDSLPackage.GO_TO__URL_NAME, oldUrlName, urlName));
+      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationDSLPackage.GO_TO__URL, oldUrl, url));
   }
 
   /**
@@ -103,8 +103,8 @@ public class GoToImpl extends CommandImpl implements GoTo
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.GO_TO__URL_NAME:
-        return getUrlName();
+      case BrowserAutomationDSLPackage.GO_TO__URL:
+        return getUrl();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class GoToImpl extends CommandImpl implements GoTo
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.GO_TO__URL_NAME:
-        setUrlName((String)newValue);
+      case BrowserAutomationDSLPackage.GO_TO__URL:
+        setUrl((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class GoToImpl extends CommandImpl implements GoTo
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.GO_TO__URL_NAME:
-        setUrlName(URL_NAME_EDEFAULT);
+      case BrowserAutomationDSLPackage.GO_TO__URL:
+        setUrl(URL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class GoToImpl extends CommandImpl implements GoTo
   {
     switch (featureID)
     {
-      case BrowserAutomationDSLPackage.GO_TO__URL_NAME:
-        return URL_NAME_EDEFAULT == null ? urlName != null : !URL_NAME_EDEFAULT.equals(urlName);
+      case BrowserAutomationDSLPackage.GO_TO__URL:
+        return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +170,8 @@ public class GoToImpl extends CommandImpl implements GoTo
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (urlName: ");
-    result.append(urlName);
+    result.append(" (url: ");
+    result.append(url);
     result.append(')');
     return result.toString();
   }

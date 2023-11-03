@@ -6,11 +6,17 @@ package fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ReadImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ReadImpl#getLinkText <em>Link Text</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.impl.ReadImpl#getNumber <em>Number</em>}</li>
  * </ul>
  *
@@ -27,6 +35,36 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ReadImpl extends CommandImpl implements Read
 {
+  /**
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElements()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> elements;
+
+  /**
+   * The default value of the '{@link #getLinkText() <em>Link Text</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLinkText()
+   * @generated
+   * @ordered
+   */
+  protected static final String LINK_TEXT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLinkText() <em>Link Text</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLinkText()
+   * @generated
+   * @ordered
+   */
+  protected String linkText = LINK_TEXT_EDEFAULT;
+
   /**
    * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -74,6 +112,46 @@ public class ReadImpl extends CommandImpl implements Read
    * @generated
    */
   @Override
+  public EList<String> getElements()
+  {
+    if (elements == null)
+    {
+      elements = new EDataTypeEList<String>(String.class, this, BrowserAutomationDSLPackage.READ__ELEMENTS);
+    }
+    return elements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getLinkText()
+  {
+    return linkText;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLinkText(String newLinkText)
+  {
+    String oldLinkText = linkText;
+    linkText = newLinkText;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationDSLPackage.READ__LINK_TEXT, oldLinkText, linkText));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public int getNumber()
   {
     return number;
@@ -103,6 +181,10 @@ public class ReadImpl extends CommandImpl implements Read
   {
     switch (featureID)
     {
+      case BrowserAutomationDSLPackage.READ__ELEMENTS:
+        return getElements();
+      case BrowserAutomationDSLPackage.READ__LINK_TEXT:
+        return getLinkText();
       case BrowserAutomationDSLPackage.READ__NUMBER:
         return getNumber();
     }
@@ -114,11 +196,19 @@ public class ReadImpl extends CommandImpl implements Read
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case BrowserAutomationDSLPackage.READ__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends String>)newValue);
+        return;
+      case BrowserAutomationDSLPackage.READ__LINK_TEXT:
+        setLinkText((String)newValue);
+        return;
       case BrowserAutomationDSLPackage.READ__NUMBER:
         setNumber((Integer)newValue);
         return;
@@ -136,6 +226,12 @@ public class ReadImpl extends CommandImpl implements Read
   {
     switch (featureID)
     {
+      case BrowserAutomationDSLPackage.READ__ELEMENTS:
+        getElements().clear();
+        return;
+      case BrowserAutomationDSLPackage.READ__LINK_TEXT:
+        setLinkText(LINK_TEXT_EDEFAULT);
+        return;
       case BrowserAutomationDSLPackage.READ__NUMBER:
         setNumber(NUMBER_EDEFAULT);
         return;
@@ -153,6 +249,10 @@ public class ReadImpl extends CommandImpl implements Read
   {
     switch (featureID)
     {
+      case BrowserAutomationDSLPackage.READ__ELEMENTS:
+        return elements != null && !elements.isEmpty();
+      case BrowserAutomationDSLPackage.READ__LINK_TEXT:
+        return LINK_TEXT_EDEFAULT == null ? linkText != null : !LINK_TEXT_EDEFAULT.equals(linkText);
       case BrowserAutomationDSLPackage.READ__NUMBER:
         return number != NUMBER_EDEFAULT;
     }
@@ -170,7 +270,11 @@ public class ReadImpl extends CommandImpl implements Read
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (number: ");
+    result.append(" (elements: ");
+    result.append(elements);
+    result.append(", linkText: ");
+    result.append(linkText);
+    result.append(", number: ");
     result.append(number);
     result.append(')');
     return result.toString();

@@ -13,7 +13,7 @@ package fr.imta.yperiquoi.browserautomation.browserAutomationDSL;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrlName <em>Url Name</em>}</li>
+ *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getGoTo()
@@ -23,25 +23,25 @@ package fr.imta.yperiquoi.browserautomation.browserAutomationDSL;
 public interface GoTo extends Command
 {
   /**
-   * Returns the value of the '<em><b>Url Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Url</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Url Name</em>' attribute.
-   * @see #setUrlName(String)
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getGoTo_UrlName()
+   * @return the value of the '<em>Url</em>' attribute.
+   * @see #setUrl(String)
+   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getGoTo_Url()
    * @model
    * @generated
    */
-  String getUrlName();
+  String getUrl();
 
   /**
-   * Sets the value of the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrlName <em>Url Name</em>}' attribute.
+   * Sets the value of the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo#getUrl <em>Url</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Url Name</em>' attribute.
-   * @see #getUrlName()
+   * @param value the new value of the '<em>Url</em>' attribute.
+   * @see #getUrl()
    * @generated
    */
-  void setUrlName(String value);
+  void setUrl(String value);
 
 } // GoTo

@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select#getCheckboxName <em>Checkbox Name</em>}</li>
  *   <li>{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select#getValues <em>Values</em>}</li>
  * </ul>
  *
@@ -24,28 +23,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Select extends Command
 {
-  /**
-   * Returns the value of the '<em><b>Checkbox Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Checkbox Name</em>' attribute.
-   * @see #setCheckboxName(String)
-   * @see fr.imta.yperiquoi.browserautomation.browserAutomationDSL.BrowserAutomationDSLPackage#getSelect_CheckboxName()
-   * @model
-   * @generated
-   */
-  String getCheckboxName();
-
-  /**
-   * Sets the value of the '{@link fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select#getCheckboxName <em>Checkbox Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Checkbox Name</em>' attribute.
-   * @see #getCheckboxName()
-   * @generated
-   */
-  void setCheckboxName(String value);
-
   /**
    * Returns the value of the '<em><b>Values</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.

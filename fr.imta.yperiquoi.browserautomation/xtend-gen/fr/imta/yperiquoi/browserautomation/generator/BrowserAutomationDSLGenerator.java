@@ -3,6 +3,7 @@
  */
 package fr.imta.yperiquoi.browserautomation.generator;
 
+import com.google.common.base.Objects;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Click;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Combobox;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Command;
@@ -10,7 +11,6 @@ import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Fill;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.GoTo;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Model;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.OpenBrowser;
-import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Paste;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Read;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Select;
 import fr.imta.yperiquoi.browserautomation.browserAutomationDSL.Uncheck;
@@ -61,7 +61,7 @@ public class BrowserAutomationDSLGenerator extends AbstractGenerator {
     String _code_3 = code;
     code = (_code_3 + "import org.openqa.selenium.chrome.ChromeDriver;\n");
     String _code_4 = code;
-    code = (_code_4 + "import org.openqa.selenium.JavascriptExecutor\n;");
+    code = (_code_4 + "import org.openqa.selenium.JavascriptExecutor;\n");
     String _code_5 = code;
     code = (_code_5 + "import org.openqa.selenium.interactions.Actions;\n");
     String _code_6 = code;
@@ -82,8 +82,8 @@ public class BrowserAutomationDSLGenerator extends AbstractGenerator {
           String _code_11 = code;
           code = (_code_11 + "        // Go to URL\n");
           String _code_12 = code;
-          String _urlName = ((GoTo)command).getUrlName();
-          String _plus = ("        driver.get(\"" + _urlName);
+          String _url = ((GoTo)command).getUrl();
+          String _plus = ("        driver.get(\"" + _url);
           String _plus_1 = (_plus + "\");\n\n");
           code = (_code_12 + _plus_1);
         } else {
@@ -123,179 +123,193 @@ public class BrowserAutomationDSLGenerator extends AbstractGenerator {
                   String _plus_7 = (_plus_6 + "\']\")).click();\n\n");
                   code = (_code_19 + _plus_7);
                 } else {
-                  String _code_20 = code;
-                  code = (_code_20 + "\t\t link.click();\n");
+                  String _variable = ((Click)command).getVariable();
+                  boolean _tripleNotEquals_3 = (_variable != null);
+                  if (_tripleNotEquals_3) {
+                    String _variable_1 = ((Click)command).getVariable();
+                    boolean _equals = Objects.equal(_variable_1, "url");
+                    if (_equals) {
+                      String _code_20 = code;
+                      String _variable_2 = ((Click)command).getVariable();
+                      String _plus_8 = ("        driver.get(" + _variable_2);
+                      String _plus_9 = (_plus_8 + ");\n\n");
+                      code = (_code_20 + _plus_9);
+                    }
+                  }
                 }
               }
             }
           } else {
             if ((command instanceof Fill)) {
+              String _code_21 = code;
+              code = (_code_21 + "        // Add text to the search field (first input)\n");
+              String _code_22 = code;
               String _fieldName = ((Fill)command).getFieldName();
-              boolean _tripleNotEquals_3 = (_fieldName != null);
-              if (_tripleNotEquals_3) {
-                String _code_21 = code;
-                code = (_code_21 + "        // Fill a text field\n");
-                String _code_22 = code;
-                String _fieldName_1 = ((Fill)command).getFieldName();
-                String _plus_8 = ("        WebElement textField = driver.findElement(By.name(\"" + _fieldName_1);
-                String _plus_9 = (_plus_8 + "\"));\n");
-                code = (_code_22 + _plus_9);
-                String _code_23 = code;
-                String _textToFill = ((Fill)command).getTextToFill();
-                String _plus_10 = ("        textField.sendKeys(\"" + _textToFill);
-                String _plus_11 = (_plus_10 + "\");\n\n");
-                code = (_code_23 + _plus_11);
-              } else {
+              String _plus_10 = ("        WebElement labelElement = driver.findElements(By.xpath(\"//label[text()=\'" + _fieldName);
+              String _plus_11 = (_plus_10 + "\']\")).get(1);\n");
+              code = (_code_22 + _plus_11);
+              String _code_23 = code;
+              code = (_code_23 + "\t\t WebElement inputElement = driver.findElement(By.id(labelElement.getAttribute(\"for\")));\n");
+              String _textToFill = ((Fill)command).getTextToFill();
+              boolean _tripleNotEquals_4 = (_textToFill != null);
+              if (_tripleNotEquals_4) {
                 String _code_24 = code;
-                code = (_code_24 + "        // Add text to the search field (first input)\n");
-                String _code_25 = code;
-                code = (_code_25 + "        WebElement labelElement = driver.findElements(By.xpath(\"//label[text()=\'Rechercher\']\")).get(1);\n");
-                String _code_26 = code;
-                code = (_code_26 + "\t\t WebElement inputElement = driver.findElement(By.id(labelElement.getAttribute(\"for\")));\n");
-                String _code_27 = code;
                 String _textToFill_1 = ((Fill)command).getTextToFill();
                 String _plus_12 = ("        inputElement.sendKeys(\"" + _textToFill_1);
                 String _plus_13 = (_plus_12 + "\");\n\n");
-                code = (_code_27 + _plus_13);
+                code = (_code_24 + _plus_13);
+              } else {
+                String _variable_3 = ((Fill)command).getVariable();
+                boolean _tripleNotEquals_5 = (_variable_3 != null);
+                if (_tripleNotEquals_5) {
+                  String _code_25 = code;
+                  String _variable_4 = ((Fill)command).getVariable();
+                  String _plus_14 = ("        inputElement.sendKeys(" + _variable_4);
+                  String _plus_15 = (_plus_14 + ");\n\n");
+                  code = (_code_25 + _plus_15);
+                }
               }
             } else {
               if ((command instanceof Select)) {
-                String _checkboxName = ((Select)command).getCheckboxName();
-                boolean _tripleNotEquals_4 = (_checkboxName != null);
-                if (_tripleNotEquals_4) {
+                String _code_26 = code;
+                code = (_code_26 + "        // Check checkboxes by their values\n");
+                String _code_27 = code;
+                code = (_code_27 + "        List<String> valuesToCheck = Arrays.asList(");
+                EList<String> _values = ((Select)command).getValues();
+                for (final String value : _values) {
                   String _code_28 = code;
-                  code = (_code_28 + "        // Select a checkbox\n");
-                  String _code_29 = code;
-                  String _checkboxName_1 = ((Select)command).getCheckboxName();
-                  String _plus_14 = ("        driver.findElement(By.name(\"" + _checkboxName_1);
-                  String _plus_15 = (_plus_14 + "\")).click();\n\n");
-                  code = (_code_29 + _plus_15);
-                } else {
-                  String _code_30 = code;
-                  code = (_code_30 + "        // Check checkboxes by their values\n");
-                  String _code_31 = code;
-                  code = (_code_31 + "        List<String> valuesToCheck = Arrays.asList(");
-                  EList<String> _values = ((Select)command).getValues();
-                  for (final String value : _values) {
-                    String _code_32 = code;
-                    code = (_code_32 + (("\"" + value) + "\", "));
-                  }
-                  int _length = code.length();
-                  int _minus = (_length - 2);
-                  code = code.substring(0, _minus);
-                  String _code_33 = code;
-                  code = (_code_33 + ");\n");
-                  String _code_34 = code;
-                  code = (_code_34 + "        JavascriptExecutor js = (JavascriptExecutor) driver;\n");
-                  String _code_35 = code;
-                  code = (_code_35 + "        js.executeScript(\"window.scrollTo(0, 340);\");\n");
-                  String _code_36 = code;
-                  code = (_code_36 + "        for(String value: valuesToCheck) {\n");
-                  String _code_37 = code;
-                  code = (_code_37 + "            WebElement labelElement = driver.findElement(By.xpath(\"//label[text()=\'\" + value + \"\']\"));\n");
-                  String _code_38 = code;
-                  code = (_code_38 + "            WebElement inputElement = driver.findElement(By.id(labelElement.getAttribute(\"for\")));\n");
-                  String _code_39 = code;
-                  code = (_code_39 + "            inputElement.click();\n");
-                  String _code_40 = code;
-                  code = (_code_40 + "        }\n");
+                  code = (_code_28 + (("\"" + value) + "\", "));
                 }
+                int _length = code.length();
+                int _minus = (_length - 2);
+                code = code.substring(0, _minus);
+                String _code_29 = code;
+                code = (_code_29 + ");\n");
+                String _code_30 = code;
+                code = (_code_30 + "        JavascriptExecutor js = (JavascriptExecutor) driver;\n");
+                String _code_31 = code;
+                code = (_code_31 + "        js.executeScript(\"window.scrollTo(0, 340);\");\n");
+                String _code_32 = code;
+                code = (_code_32 + "        for(String value: valuesToCheck) {\n");
+                String _code_33 = code;
+                code = (_code_33 + "            WebElement labelElement = driver.findElement(By.xpath(\"//label[text()=\'\" + value + \"\']\"));\n");
+                String _code_34 = code;
+                code = (_code_34 + "            WebElement inputElement = driver.findElement(By.id(labelElement.getAttribute(\"for\")));\n");
+                String _code_35 = code;
+                code = (_code_35 + "            inputElement.click();\n");
+                String _code_36 = code;
+                code = (_code_36 + "        }\n");
               } else {
                 if ((command instanceof Verify)) {
                   String _textToVerify = ((Verify)command).getTextToVerify();
-                  boolean _tripleNotEquals_5 = (_textToVerify != null);
-                  if (_tripleNotEquals_5) {
-                    String _code_41 = code;
-                    code = (_code_41 + "        // Verify that the page contains text\n");
-                    String _code_42 = code;
+                  boolean _tripleNotEquals_6 = (_textToVerify != null);
+                  if (_tripleNotEquals_6) {
+                    String _code_37 = code;
+                    code = (_code_37 + "        // Verify that the page contains text\n");
+                    String _code_38 = code;
                     String _textToVerify_1 = ((Verify)command).getTextToVerify();
                     String _plus_16 = ("        assert driver.getPageSource().contains(\"" + _textToVerify_1);
                     String _plus_17 = (_plus_16 + "\");\n\n");
-                    code = (_code_42 + _plus_17);
+                    code = (_code_38 + _plus_17);
                   } else {
                     String _linkToVerify = ((Verify)command).getLinkToVerify();
-                    boolean _tripleNotEquals_6 = (_linkToVerify != null);
-                    if (_tripleNotEquals_6) {
-                      String _code_43 = code;
-                      code = (_code_43 + "        // Verify that the page contains link\n");
-                      String _code_44 = code;
+                    boolean _tripleNotEquals_7 = (_linkToVerify != null);
+                    if (_tripleNotEquals_7) {
+                      String _code_39 = code;
+                      code = (_code_39 + "        // Verify that the page contains link\n");
+                      String _code_40 = code;
                       String _linkToVerify_1 = ((Verify)command).getLinkToVerify();
                       String _plus_18 = ("        assert driver.findElements(By.partialLinkText(\"" + _linkToVerify_1);
                       String _plus_19 = (_plus_18 + "\")).size() > 0;\n\n");
-                      code = (_code_44 + _plus_19);
+                      code = (_code_40 + _plus_19);
                     } else {
-                      String _code_45 = code;
-                      code = (_code_45 + "        // Verify that the page countains the last url and title\n");
-                      String _code_46 = code;
-                      code = (_code_46 + "        WebElement foundLink = driver.findElement(By.xpath(\"//a[@href=\\\"\"+ url +\"\\\"]\"));\n");
-                      String _code_47 = code;
-                      code = (_code_47 + "        Assert.notNull(link, \"Link is not found.\");\n");
-                      String _code_48 = code;
-                      code = (_code_48 + "\t\t assert driver.getPageSource().contains(title);\n");
+                      String _variable_5 = ((Verify)command).getVariable();
+                      boolean _tripleNotEquals_8 = (_variable_5 != null);
+                      if (_tripleNotEquals_8) {
+                        String _variable_6 = ((Verify)command).getVariable();
+                        boolean _equals_1 = Objects.equal(_variable_6, "url");
+                        if (_equals_1) {
+                          String _code_41 = code;
+                          code = (_code_41 + "        // Verify that the page countains the url\n");
+                          String _code_42 = code;
+                          code = (_code_42 + "        WebElement foundLink = driver.findElement(By.xpath(\"//a[@href=\\\"\"+ url +\"\\\"]\"));\n");
+                          String _code_43 = code;
+                          code = (_code_43 + "        Assert.notNull(link, \"Link is not found.\");\n");
+                        }
+                        String _variable_7 = ((Verify)command).getVariable();
+                        boolean _equals_2 = Objects.equal(_variable_7, "title");
+                        if (_equals_2) {
+                          String _code_44 = code;
+                          code = (_code_44 + "        // Verify that the page countains the title\n");
+                          String _code_45 = code;
+                          code = (_code_45 + "\t\t assert driver.getPageSource().contains(title);\n");
+                        }
+                      }
                     }
                   }
                 } else {
                   if ((command instanceof Read)) {
-                    String _code_49 = code;
-                    code = (_code_49 + "\t\t //Get the link to a news\n");
-                    String _code_50 = code;
+                    String _code_46 = code;
+                    code = (_code_46 + "\t\t //Get the link to a news\n");
+                    String _code_47 = code;
+                    String _linkText_2 = ((Read)command).getLinkText();
+                    String _plus_20 = ("        WebElement link = driver.findElements(By.xpath(\"//a[starts-with(@href, \'" + _linkText_2);
+                    String _plus_21 = (_plus_20 + "\')]\")).get(");
                     int _number = ((Read)command).getNumber();
-                    String _plus_20 = ("        WebElement link = driver.findElements(By.xpath(\"//a[starts-with(@href, \'/fr/actualites\')]\")).get(" + Integer.valueOf(_number));
-                    String _plus_21 = (_plus_20 + ");\n");
-                    code = (_code_50 + _plus_21);
-                    String _code_51 = code;
-                    code = (_code_51 + "\t\t //Store the title of the news\n");
-                    String _code_52 = code;
-                    code = (_code_52 + "        String title = link.getText();\n");
-                    String _code_53 = code;
-                    code = (_code_53 + "\t\t String url = link.getDomAttribute(\"href\");\n");
+                    String _plus_22 = (_plus_21 + Integer.valueOf(_number));
+                    String _plus_23 = (_plus_22 + ");\n");
+                    code = (_code_47 + _plus_23);
+                    boolean _contains = ((Read)command).getElements().contains("title");
+                    if (_contains) {
+                      String _code_48 = code;
+                      code = (_code_48 + "        String title = link.getText();\n");
+                    }
+                    boolean _contains_1 = ((Read)command).getElements().contains("url");
+                    if (_contains_1) {
+                      String _code_49 = code;
+                      code = (_code_49 + "        String url = link.getAttribute(\"href\");\n");
+                    }
+                    boolean _contains_2 = ((Read)command).getElements().contains("text link");
+                    if (_contains_2) {
+                      String _code_50 = code;
+                      code = (_code_50 + "        String title = link.getText();\n");
+                    }
                   } else {
-                    if ((command instanceof Paste)) {
+                    if ((command instanceof Uncheck)) {
+                      String _code_51 = code;
+                      code = (_code_51 + "        // Uncheck all checkboxes\n");
+                      String _code_52 = code;
+                      code = (_code_52 + "        List<WebElement> checkboxes = driver.findElements(By.xpath(\"//input[@type=\'checkbox\']\"));\n");
+                      String _code_53 = code;
+                      code = (_code_53 + "        for (WebElement checkbox : checkboxes) {\n");
                       String _code_54 = code;
-                      code = (_code_54 + "        // Add text to the search field (first input)\n");
+                      code = (_code_54 + "            if (checkbox.isSelected()) {\n");
                       String _code_55 = code;
-                      code = (_code_55 + "        WebElement labelElement = driver.findElements(By.xpath(\"//label[text()=\'Rechercher\']\")).get(1);\n");
+                      code = (_code_55 + "                checkbox.click();\n");
                       String _code_56 = code;
-                      code = (_code_56 + "\t\t WebElement inputElement = driver.findElement(By.id(labelElement.getAttribute(\"for\")));\n");
+                      code = (_code_56 + "            }\n");
                       String _code_57 = code;
-                      code = (_code_57 + "        inputElement.sendKeys(title);\n\n");
+                      code = (_code_57 + "        }\n\n");
                     } else {
-                      if ((command instanceof Uncheck)) {
+                      if ((command instanceof Combobox)) {
                         String _code_58 = code;
-                        code = (_code_58 + "        // Uncheck all checkboxes\n");
+                        code = (_code_58 + "        // Get the label from the combox\n");
                         String _code_59 = code;
-                        code = (_code_59 + "        List<WebElement> checkboxes = driver.findElements(By.xpath(\"//input[@type=\'checkbox\']\"));\n");
+                        String _label = ((Combobox)command).getLabel();
+                        String _plus_24 = ("        WebElement e = driver.findElement(By.xpath(\"//label[text()=\'" + _label);
+                        String _plus_25 = (_plus_24 + "\']\"));\n");
+                        code = (_code_59 + _plus_25);
                         String _code_60 = code;
-                        code = (_code_60 + "        for (WebElement checkbox : checkboxes) {\n");
+                        code = (_code_60 + "        // Open the combobox\n");
                         String _code_61 = code;
-                        code = (_code_61 + "            if (checkbox.isSelected()) {\n");
+                        code = (_code_61 + "        new Actions(driver).moveToLocation(e.getLocation().x, e.getLocation().getY() + 50).click().perform();\n");
                         String _code_62 = code;
-                        code = (_code_62 + "                checkbox.click();\n");
+                        code = (_code_62 + "        // Click on the option\n");
                         String _code_63 = code;
-                        code = (_code_63 + "            }\n");
-                        String _code_64 = code;
-                        code = (_code_64 + "        }\n\n");
-                      } else {
-                        if ((command instanceof Combobox)) {
-                          String _code_65 = code;
-                          code = (_code_65 + "        // Get the label from the combox\n");
-                          String _code_66 = code;
-                          String _label = ((Combobox)command).getLabel();
-                          String _plus_22 = ("        WebElement e = driver.findElement(By.xpath(\"//label[text()=\'" + _label);
-                          String _plus_23 = (_plus_22 + "\']\"));\n");
-                          code = (_code_66 + _plus_23);
-                          String _code_67 = code;
-                          code = (_code_67 + "        // Open the combobox\n");
-                          String _code_68 = code;
-                          code = (_code_68 + "        new Actions(driver).moveToLocation(e.getLocation().x, e.getLocation().getY() + 50).click().perform();\n");
-                          String _code_69 = code;
-                          code = (_code_69 + "        // Click on the option\n");
-                          String _code_70 = code;
-                          String _option = ((Combobox)command).getOption();
-                          String _plus_24 = ("        driver.findElement(By.xpath(\"//li[text()=\'" + _option);
-                          String _plus_25 = (_plus_24 + "\']\")).click();\n");
-                          code = (_code_70 + _plus_25);
-                        }
+                        String _option = ((Combobox)command).getOption();
+                        String _plus_26 = ("        driver.findElement(By.xpath(\"//li[text()=\'" + _option);
+                        String _plus_27 = (_plus_26 + "\']\")).click();\n");
+                        code = (_code_63 + _plus_27);
                       }
                     }
                   }
@@ -306,12 +320,12 @@ public class BrowserAutomationDSLGenerator extends AbstractGenerator {
         }
       }
     }
-    String _code_71 = code;
-    code = (_code_71 + "        driver.quit();\n");
-    String _code_72 = code;
-    code = (_code_72 + "    }\n");
-    String _code_73 = code;
-    code = (_code_73 + "}\n");
+    String _code_64 = code;
+    code = (_code_64 + "        driver.quit();\n");
+    String _code_65 = code;
+    code = (_code_65 + "    }\n");
+    String _code_66 = code;
+    code = (_code_66 + "}\n");
     return code.toString();
   }
 }

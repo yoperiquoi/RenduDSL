@@ -74,7 +74,6 @@ public class BrowserAutomationDSLFactoryImpl extends EFactoryImpl implements Bro
       case BrowserAutomationDSLPackage.SELECT: return createSelect();
       case BrowserAutomationDSLPackage.VERIFY: return createVerify();
       case BrowserAutomationDSLPackage.READ: return createRead();
-      case BrowserAutomationDSLPackage.PASTE: return createPaste();
       case BrowserAutomationDSLPackage.UNCHECK: return createUncheck();
       case BrowserAutomationDSLPackage.COMBOBOX: return createCombobox();
       default:
@@ -188,18 +187,6 @@ public class BrowserAutomationDSLFactoryImpl extends EFactoryImpl implements Bro
   {
     ReadImpl read = new ReadImpl();
     return read;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Paste createPaste()
-  {
-    PasteImpl paste = new PasteImpl();
-    return paste;
   }
 
   /**
